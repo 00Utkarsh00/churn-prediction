@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Churn Prediction</title>
+</head>
+<body>
+    <h1>Churn Prediction</h1>
+    <form action="/predict" method="post">
+        <label for="gender">Gender:</label>
+        <select name="gender" id="gender">
+            <option value="0">Female</option>
+            <option value="1">Male</option>
+        </select><br><br>
+        
+        <label for="location">Location:</label>
+        <select name="location" id="location">
+            <option value="0">Chicago</option>
+            <option value="1">Houston</option>
+            <option value="2">Los Angeles</option>
+            <option value="3">Miami</option>
+            <option value="4">New York</option>
+        </select><br><br>
+        
+        <label for="monthly_bill">Monthly Bill:</label>
+        <input type="number" step="0.01" name="monthly_bill"><br><br>
+        
+        <label for="total_usage_gb">Total Usage (GB):</label>
+        <input type="number" name="total_usage_gb"><br><br>
+        
+        <label for="age_group">Age Group:</label>
+        <select name="age_group" id="age_group">
+            <option value="0">0-30</option>
+            <option value="1">30-60</option>
+            <option value="2">60-100</option>
+        </select><br><br>
+        
+        <label for="subscription_duration">Subscription Duration:</label>
+        <select name="subscription_duration" id="subscription_duration">
+            <option value="0">0-6 months</option>
+            <option value="1">6-12 months</option>
+            <option value="2">More than 12 months</option>
+        </select><br><br>
+        
+        <label for="total_money_spent">Total Money Spent:</label>
+        <input type="number" step="0.01" name="total_money_spent"><br><br>
+        
+        <input type="submit" value="Predict">
+    </form>
+    
+    {% if prediction_result %}
+    <h2>Prediction Result: {{ prediction_result }}</h2>
+    {% endif %}
+</body>
+</html>
